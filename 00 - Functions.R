@@ -1,3 +1,34 @@
+# Functions needed for statistical analysis and plotting figures
+## Functions to check NA before t tests
+check.NA.temp <- function(x) {
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(temp) %>% is.nan %>% all -> check.1
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(temp) %>% is.na %>% all -> check.2
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(temp) %>% is.nan %>% all -> check.3
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(temp) %>% is.na %>% all -> check.4
+  return(any(check.1, check.2, check.3, check.4))
+}
+check.NA.PLD <- function(x) {
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(PLD) %>% is.nan %>% all -> check.1
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(PLD) %>% is.na %>% all -> check.2
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(PLD) %>% is.nan %>% all -> check.3
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(PLD) %>% is.na %>% all -> check.4
+  return(any(check.1, check.2, check.3, check.4))
+}
+check.NA.so <- function(x) {
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(spawning_onset) %>% is.nan %>% all -> check.1
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(spawning_onset) %>% is.na %>% all -> check.2
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(spawning_onset) %>% is.nan %>% all -> check.3
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(spawning_onset) %>% is.na %>% all -> check.4
+  return(any(check.1, check.2, check.3, check.4))
+}
+check.NA <- function(x,variable) {
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(variable) %>% is.nan %>% all -> check.1
+  x %>% filter(decade == levels(x$decade)[1]) %>% pull(variable) %>% is.na %>% all -> check.2
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(variable) %>% is.nan %>% all -> check.3
+  x %>% filter(decade == levels(x$decade)[2]) %>% pull(variable) %>% is.na %>% all -> check.4
+  return(any(check.1, check.2, check.3, check.4))
+}
+
 theme_map <- function() {
   theme_minimal() + 
     theme(

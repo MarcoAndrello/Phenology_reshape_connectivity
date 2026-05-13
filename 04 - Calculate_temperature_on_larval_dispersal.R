@@ -12,7 +12,7 @@ library(lubridate)
 
 # Build nc_map
 # --- Path NetCDF
-nc_path <- "D:/Temperatura POLCOMS/"
+nc_path <- "D:/Temperature POLCOMS/"
 # --- list files thetao
 nc_files <- list.files(nc_path, pattern = "thetao-\\d{4}-\\d{2}-v1\\.1\\.nc$", full.names = TRUE)
 # --- Extract YYYY-MM from filename

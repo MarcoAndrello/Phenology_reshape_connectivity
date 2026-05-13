@@ -1,6 +1,9 @@
 # Phenology_reshape_connectivity
 Code and data for the study "Phenological shifts reshape connectivity under climate change"
 
+00 - Functions.R
+Functions needed for statistical analysis and plotting figures
+
 01 - Create_configuration_files.R
 Creates the .xml configuration files for the Ichthyop simulations. It starts from the template file "ichthyop_configuration_files/Config_base.xml" and creates one file for each day of each year (2020 to 2029 and 2090 to 2099)
 
@@ -16,15 +19,22 @@ It calculates the mean temperature experienced by larvae over the first days of 
 05 - Calculate_spawning_dates.R
 It calculates an array giving whether spawning occurs for each site, day, year and decade
 
-06 - Calibrate PLD-T relationship.r
+06 - Calibrate_PLD-T_relationship.r
 It calculates the beta0 parameter of the relationship between temperature and PLD estimated by O'Connor
 
 07 - Calculate_mean_PLD.R
 It calculates the expected PLD of each drifter as a function of its mean temperature. It produces one file for each year: each file is as a list object ("data_PLD") that containes a dataframe for each day of the season (181 days, from March 1st to Aug 30th); in each dataframe, there are the sites of release, year, release day and calculated PLD for each released drifter (132241 drifters).
 
-08 - Calculate connectivity_v08.R
+08 - Calculate_connectivity_v08.R
 It calculates dispersal distance and the connectivity matrix using the calculated spawning dates (from 05 - Calculate_spawning_dates.R) and mean PLD (from 07 - Calculate_mean_PLD.R), for each site and year, under the two spawning scenarios. Results are saved into the "connectivity" folder.
 
 09 - Calculate_connectivity_variables_v02.R
 It calculates various connectivity variables, among which total settlement success, for each site and year, and saves results in data_connectivity_Diplodus_sargus_mu01.RData. It calculates average connectivity matrices for each decade and spawning scenario.
+
+10 - Statistical_analysis
+It runs statistical analyses on the six variables (temperature of adult sites, temperature experienced by larvae, spawning onset, PLD, dispersal distance and total settlement success). It also prepares the data needed to plot the figures
+
+11 - Plot_figures
+Code to plot the figures of the manuscript
+
 
