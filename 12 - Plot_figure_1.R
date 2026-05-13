@@ -8,14 +8,13 @@ days <- 1:365
 threshold <- 17
 spawn_duration <- 90
 
-# funzione temperatura stagionale
+# function for seasonal temperature
 temp_fun <- function(day, mean, amp=7, phase=100){
     mean + amp*sin(2*pi*(day-phase)/365)
 }
 
 # scenari
-scenarios <- data.frame(
-    scenario=c("Present",
+scenarios <- data.frame(scenario=c("Present",
                "Future (fixed phenology)",
                "Future (shifting phenology)"),
     mean_temp=c(17,21,21)
@@ -33,30 +32,30 @@ df <- scenarios |>
 df$scenario <- factor(df$scenario,
                       levels=scenarios$scenario)
 
-# funzione per trovare spawning start
+# function to find spawning start
 find_spawn_start <- function(temp){
     idx <- which(stats::filter(temp>threshold, rep(1,6), sides=1)==6)[1]
     if(is.na(idx)) return(120)
     idx
 }
 
-# calcolo spawn start per scenario
+# calculates spawning start per scenario
 spawn_starts <- df |>
     group_by(scenario) |>
     summarise(start=find_spawn_start(coastal))
 
-# fixed phenology usa quello del presente
+# fixed phenology uses the present one
 spawn_starts$start[spawn_starts$scenario=="Future (fixed phenology)"] <-
     spawn_starts$start[spawn_starts$scenario=="Present"]
 
-# finestra spawning
+# spawning duration
 spawn <- spawn_starts |>
     mutate(
         xmin=start,
         xmax=start+spawn_duration
     )
 
-# posizione etichetta spawning season (centro banda)
+# position label spawning season
 spawn_labels <- spawn |>
     mutate(
         x=(xmin+xmax)/2,
@@ -64,7 +63,7 @@ spawn_labels <- spawn |>
         label="Spawning\nseason"
     )
 
-# PLD concettuale (lunghezze molto diverse)
+# conceptual PLD
 pld <- spawn |>
     rowwise() |>
     mutate(

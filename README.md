@@ -19,7 +19,7 @@ It calculates the mean temperature experienced by larvae over the first days of 
 05 - Calculate_spawning_dates.R
 It calculates an array giving whether spawning occurs for each site, day, year and decade
 
-06 - Calibrate_PLD-T_relationship.r
+06 - Calibrate_PLD-T_relationship.R
 It calculates the beta0 parameter of the relationship between temperature and PLD estimated by O'Connor
 
 07 - Calculate_mean_PLD.R
@@ -31,10 +31,13 @@ It calculates dispersal distance and the connectivity matrix using the calculate
 09 - Calculate_connectivity_variables_v02.R
 It calculates various connectivity variables, among which total settlement success, for each site and year, and saves results in data_connectivity_Diplodus_sargus_mu01.RData. It calculates average connectivity matrices for each decade and spawning scenario.
 
-10 - Statistical_analysis
+10 - Statistical_analysis.R
 It runs statistical analyses on the six variables (temperature of adult sites, temperature experienced by larvae, spawning onset, PLD, dispersal distance and total settlement success). It also prepares the data needed to plot the figures
 
-11 - Plot_figures
-Code to plot the figures of the manuscript
+11 - Plot_figures.R
+Code to plot the figures of the manuscript (Figure 2, 3, 4, S1, S2, S3, S4)
+
+12 - Plot_figure_1.R
+Code to plot the conceptual Figure 1
 
 

@@ -90,9 +90,9 @@ draw_map <- function(data, variable, pvalue=NA, map_title, fill_range, map_type,
   
   load("zero_prod_to_exclude.RData")
   
-  pol <- st_read("reticolo_habidoneo_Mediterraneo/reticolo_utile.shp", quiet=T)
+  pol <- st_read("sites/sites.shp", quiet=T)
   pol %>%
-    select(-c(left, top, right, bottom, row_index, col_index, id, ID_1, areaGradi2, Area_km2)) %>%
+    #select(-c(left, top, right, bottom, row_index, col_index, id, ID_1, areaGradi2, Area_km2)) %>%
     mutate(ID.polygon = factor(1:1325)) -> pol
   if(nrow(pol) == 1325) pol[-zero_prod_to_exclude,] -> pol
   ne_countries(scale = 50, type = "countries") %>%
