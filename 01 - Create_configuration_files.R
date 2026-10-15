@@ -5,12 +5,14 @@ rm(list=ls())
 library(XML)
 library(lubridate)
 
-fileName<-"ichthyop_configuration_files/Config_base.xml"
+fileName<-"ichthyop_configuration_files/Config_base_RCP85.xml"
 
 v_year <- c(2020:2029, 2090:2099)
 i.year <- 1
-k <- 1
-i.year <- 1
+k <- 61
+i.year <- 11
+
+
 for (i.year in c(1:20)) {
     year <- v_year[i.year]
     cat(year,"\n")
@@ -21,7 +23,7 @@ for (i.year in c(1:20)) {
 
     # Loop on days and save a configuration file for each
     i <- 1
-    for (i in 1 : 365) {
+    for (i in 1 : 60) { 
         release_date <- zero_date + i
         initial_time <- paste("year",year(release_date),
                               "month",sprintf("%02d",month(release_date)),

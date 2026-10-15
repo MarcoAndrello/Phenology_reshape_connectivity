@@ -1,5 +1,0 @@
-Results obtained with “Calculate_connectivity_v08.R”, with PLD calculated using the equation from O'Connor et al. (2007), in which the species-specific intercept β0i was calibrated as indicated by the authors.
-
-Temperature used to calculate PLD was the mean temperature along larval dispersal trajectories (considering all larvae, including those not releasable). By adding 3 days to the PLD, I obtain β0 = 3.310.
-
-There are only two future scenarios: fixed spawning or variable spawning.
